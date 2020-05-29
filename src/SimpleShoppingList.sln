@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleShoppingList.DataAcce
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleShoppingList.Domain", "SimpleShoppingList.Domain\SimpleShoppingList.Domain.csproj", "{7309DF9F-813A-41F5-B75D-1720934A2944}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleShoppingList.Web", "SimpleShoppingList.Web\SimpleShoppingList.Web.csproj", "{6423E317-A8B7-4602-90CE-4C9DAB04730F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleShoppingList.Web", "SimpleShoppingList.Web\SimpleShoppingList.Web.csproj", "{6423E317-A8B7-4602-90CE-4C9DAB04730F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
