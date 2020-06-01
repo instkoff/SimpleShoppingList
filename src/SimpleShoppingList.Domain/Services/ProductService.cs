@@ -21,12 +21,13 @@ namespace SimpleShoppingList.Domain.Services
             _mapper = mapper;
         }
 
-        public async Task<Guid> Create(ProductModel productModel)
+        public async Task<ProductModel> Create(ProductModel productModel)
         {
             var productEntity = _mapper.Map<ProductEntity>(productModel);
             var result = await _dbRepository.AddAsync(productEntity);
             await _dbRepository.SaveChangesAsync();
-            return result;
+            var productResult = _mapper.Map<ProductModel>(result);
+            return productResult;
         }
 
         public async Task<Guid> Update(ProductModel productModel)

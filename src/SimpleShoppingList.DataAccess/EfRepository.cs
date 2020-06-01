@@ -27,10 +27,10 @@ namespace SimpleShoppingList.DataAccess
             return _context.Set<T>().Where(selector).Where(x => x.IsActive).AsQueryable();
         }
 
-        public async Task<Guid> AddAsync<T>(T newEntity) where T : class, IEntity
+        public async Task<T> AddAsync<T>(T newEntity) where T : class, IEntity
         {
             var entity = await _context.Set<T>().AddAsync(newEntity);
-            return entity.Entity.Id;
+            return entity.Entity;
         }
 
         public async Task AddRangeAsync<T>(IEnumerable<T> newEntities) where T : class, IEntity

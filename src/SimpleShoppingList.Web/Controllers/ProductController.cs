@@ -17,7 +17,7 @@ namespace SimpleShoppingList.Web.Controllers
             _productService = productService;
         }
         [HttpPost]
-        public async Task<ActionResult<Guid>> CreateProduct([FromBody] ProductModel productModel)
+        public async Task<ActionResult<ProductModel>> CreateProduct([FromBody] ProductModel productModel)
         {
             var result = await _productService.Create(productModel);
             return Ok(result);

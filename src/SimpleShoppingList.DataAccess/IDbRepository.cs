@@ -11,7 +11,7 @@ namespace SimpleShoppingList.DataAccess
     {
         IQueryable<T> GetActiveEntities<T>() where T : class, IEntity;
         IQueryable<T> Get<T>(Expression<Func<T, bool>> selector) where T : class, IEntity;
-        Task<Guid> AddAsync<T>(T newEntity) where T : class, IEntity;
+        Task<T> AddAsync<T>(T newEntity) where T : class, IEntity;
         Task AddRangeAsync<T>(IEnumerable<T> newEntities) where T : class, IEntity;
         Task DeleteAsync<T>(Guid id) where T : class, IEntity;
         Task RemoveAsync<T>(T entity) where T : class, IEntity;

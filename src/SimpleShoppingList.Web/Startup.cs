@@ -30,6 +30,7 @@ namespace SimpleShoppingList.Web
                 .AddNewtonsoftJson();
             services.AddAutoMapper(typeof(MappingProfile));
             services.AddDatabase(Configuration);
+            services.AddCors();
             services.AddSwagger();
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IShoppingListService, ShoppingListService>();
@@ -51,6 +52,12 @@ namespace SimpleShoppingList.Web
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseCors(builder=>
+            {
+                builder.AllowAnyOrigin()
+                    .AllowAnyMethod()
+                    .AllowAnyHeader();
+            });
 
             app.UseSwagger();
             app.UseSwaggerUI(x =>

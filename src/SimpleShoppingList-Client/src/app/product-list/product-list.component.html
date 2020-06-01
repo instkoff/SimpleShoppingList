@@ -1,0 +1,21 @@
+<div class="product-list">
+  <div *ngIf="productList.length; else noElements">
+    <table class="products-table">
+      <tr>
+        <th>Название</th>
+        <th>Цена</th>
+      </tr>
+      <tr *ngFor="let product of productList" (click)=onSelect(product)>
+        <td id="productId" hidden>{{product.id}}</td>
+        <td data-th="Название">{{product.name}}</td>
+        <td data-th="Цена">{{product.price}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+<ng-template #loadingBlock>
+  <p>Loading...</p>
+</ng-template>
+<ng-template #noElements>
+  <p>Нет элементов для отображения...</p>
+</ng-template>

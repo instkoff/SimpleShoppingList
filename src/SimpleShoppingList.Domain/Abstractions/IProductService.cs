@@ -7,7 +7,7 @@ namespace SimpleShoppingList.Domain.Abstractions
 {
     public interface IProductService
     {
-        Task<Guid> Create(ProductModel productModel);
+        Task<ProductModel> Create(ProductModel productModel);
         Task<Guid> Update(ProductModel productModel);
         List<ProductModel> GetAll();
         ProductModel GetById(Guid id);
