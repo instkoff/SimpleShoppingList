@@ -1,17 +1,37 @@
 <template>
     <div class="form-container">
     <form class="add-product-form">
-        <input type="text" name="product-name" placeholder="Введите название товара">
-        <input type="number" name="product-cost" placeholder="Цена">
+        <input type="text" name="product-name" placeholder="Введите название товара" v-model="productName">
+        <input type="number" name="product-cost" placeholder="Цена" v-model="productPrice">
         <button>Добавить</button>
-        <button>Удалить</button>
-        <button>Обновить</button>
+        <button v-if="productName && productPrice">Удалить</button>
+        <button v-if="productName && productPrice">Обновить</button>
     </form>
     </div>
 </template>
 
 <script>
 export default {
+  name: "ProductDetails",
+  props: {
+    currentProduct: {
+      type: Object
+    },
+  },
+  data: function() {
+    return {
+      productName: "",
+      productPrice: "",
+      selectedItem: {}
+    };
+  },
+  watch: {
+    currentProduct: function() {
+      this.selectedItem = this.currentProduct;
+      this.productName = this.currentProduct.name;
+      this.productPrice = this.currentProduct.price;
+    }
+  }
     
 }
 </script>

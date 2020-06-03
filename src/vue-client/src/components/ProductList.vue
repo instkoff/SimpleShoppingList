@@ -17,11 +17,21 @@
 <script>
 import { mapGetters, mapActions } from 'vuex';
 export default {
+  name: "ProductList",
+  data() {
+    return {
+      currentProduct: {}
+    };
+  },
   computed: {
-    ...mapGetters(["getAllProducts","getProduct"]),
+    ...mapGetters(["getAllProducts"]),
     },
   methods: {
     ...mapActions(["fetchProducts"]),
+    selectItem(selectedProduct) {
+      this.currentProduct = selectedProduct;
+      this.$emit("inputData", this.currentProduct);
+    }
   },
   async mounted() {
     this.fetchProducts();

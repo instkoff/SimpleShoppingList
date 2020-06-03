@@ -15,9 +15,10 @@ export default {
     },
     actions: {
         async fetchProducts(ctx) {
+            
             const result = await fetch(baseUrl+"/get-all-products");
             const productList = await result.json();
             ctx.commit('updateProducts', productList);
         }
     }
-}
+};

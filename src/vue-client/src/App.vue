@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="container">
-    <ProductDetails></ProductDetails>
-    <ProductList></ProductList>
+    <ProductDetails :currentProduct="selectedProduct" />
+    <ProductList @inputData="updateSelectedProduct" />
   </div>
 </template>
 
@@ -14,7 +14,17 @@ export default {
     ProductList,
     ProductDetails
   },
-}
+  data: function() {
+    return {
+      selectedProduct: {}
+    };
+  },
+  methods: {
+    updateSelectedProduct(currentProduct) {
+      this.selectedProduct = currentProduct;
+    }
+  }
+};
 </script>
 
 <style lang="less">
